@@ -134,11 +134,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jkerz\\Desktop\\Programmieren\\Projects\\JumpingSpeeds\\JumpingSpeeds.csproj",
+      "projectUniqueName": "C:\\Users\\jkerz\\Desktop\\Programmieren\\Projects\\SpeedJumping\\JumpingSpeeds.csproj",
       "projectName": "JumpingSpeeds",
-      "projectPath": "C:\\Users\\jkerz\\Desktop\\Programmieren\\Projects\\JumpingSpeeds\\JumpingSpeeds.csproj",
+      "projectPath": "C:\\Users\\jkerz\\Desktop\\Programmieren\\Projects\\SpeedJumping\\JumpingSpeeds.csproj",
       "packagesPath": "C:\\Users\\jkerz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jkerz\\Desktop\\Programmieren\\Projects\\JumpingSpeeds\\obj\\",
+      "outputPath": "C:\\Users\\jkerz\\Desktop\\Programmieren\\Projects\\SpeedJumping\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

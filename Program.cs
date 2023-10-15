@@ -1,10 +1,20 @@
-﻿using System.Runtime.Versioning;
+﻿using System.Reflection.Emit;
+using System.Runtime.Versioning;
 using Raylib_cs;
 
 namespace HelloWorld;
 
 static class Program
 {
+    public static void DrawHitbox(GameObject g)
+    {
+        Hitbox h = g.GetComponent<Hitbox>();
+        Raylib.DrawRectangle(Convert.ToInt16(g.GetComponent<Hitbox>().AbsoluteTopLeft.X)
+        ,Convert.ToInt16(h.AbsoluteTopLeft.Y),
+        Convert.ToInt16(MathF.Abs(Convert.ToInt16(h.AbsoluteTopLeft.X) - Convert.ToInt16(h.AbsoluteBottomRight.X))),
+         Convert.ToInt16(MathF.Abs(h.AbsoluteTopLeft.Y - h.AbsoluteBottomRight.Y)),
+         Color.BLACK);
+    }
     static int Movement_Speed = 1;
     static Texture2D ghostSprite;
     
@@ -17,55 +27,44 @@ static class Program
         ghostSprite = Raylib.LoadTexture("resources/BlueGhost.png");
         Player.GetComponent<SpriteRenderer>().Sprite = ghostSprite;
         Player.AddComponent<Rigidbody2D>();
+        Player.AddComponent<PlayerControls>();
+        Player.AddComponent<Hitbox>();
+        Player.GetComponent<Hitbox>().TopLeft = new System.Numerics.Vector2(0,10);
+        Player.GetComponent<Hitbox>().BottomRight = new System.Numerics.Vector2(100,120);
+
+        GameObject Floor = new GameObject();
+        Floor.transform.PosX = 0;
+        Floor.transform.PosY = 600;
+        Floor.AddComponent<Hitbox>();
+        Floor.GetComponent<Hitbox>().TopLeft = new System.Numerics.Vector2(0,0);
+        Floor.GetComponent<Hitbox>().BottomRight = new System.Numerics.Vector2(3000,100);
+        Console.WriteLine(Floor.GetComponent<Hitbox>().AbsoluteBottomRight);
+        Console.WriteLine(Floor.GetComponent<Hitbox>().AbsoluteTopLeft);
+
+        GameObject Floor2 = new GameObject();
+        Floor2.transform.PosX = 600;
+        Floor2.transform.PosY = 200;
+        Floor2.AddComponent<Hitbox>();
+        Floor2.GetComponent<Hitbox>().TopLeft = new System.Numerics.Vector2(0,0);
+        Floor2.GetComponent<Hitbox>().BottomRight = new System.Numerics.Vector2(50,200);
+        Console.WriteLine(Floor2.GetComponent<Hitbox>().AbsoluteBottomRight);
+        Console.WriteLine(Floor2.GetComponent<Hitbox>().AbsoluteTopLeft);
+        Floor2.AddComponent<Rigidbody2D>();
         
-        bool JumpAbility = true;
-        Rigidbody2D rb = Player.GetComponent<Rigidbody2D>();
-        ghostSprite = Raylib.LoadTexture("resources/BlueGhost.png");
-        Console.WriteLine(ghostSprite);
+        
         while (!Raylib.WindowShouldClose())
         {
-            if (Raylib.IsKeyDown(KeyboardKey.KEY_M))
-            {
-                rb.GravityFactor = 0.2f;
-
-            }
-            else
-            {
-                rb.GravityFactor = 0.5f;
-            }
+            
             Raylib.WaitTime(0.016);
-           
-
-            if (Raylib.IsKeyDown(KeyboardKey.KEY_M)&& JumpAbility	)
-            {
-                rb.YVelocity = 10;
-                JumpAbility = false;
-            }
-            if (Raylib.IsKeyDown(KeyboardKey.KEY_D))
-            rb.XVelocity-= Movement_Speed;
-            else
-
-            if (Raylib.IsKeyDown(KeyboardKey.KEY_A))
-            rb.XVelocity+= Movement_Speed;
-            
-            
-
-
-            
-           
-            
-            if(Player.transform.PosY > 400)
-            {
-                Player.transform.PosY = 400;
-                rb.YVelocity = 0;
-                JumpAbility = true;
-                rb.XVelocity *= 0.7f;
-            }
+       
             Raylib.BeginDrawing();
 
             Raylib.ClearBackground(Color.WHITE);
             Player.Tick();
-            
+            //DrawHitbox(Player);
+            DrawHitbox(Floor);
+             DrawHitbox(Floor2);
+             Floor2.Tick();
 
             Raylib.EndDrawing();
         }

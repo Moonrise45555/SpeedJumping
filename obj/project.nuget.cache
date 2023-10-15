@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sK9fDxxM4BvKy25lAz3PcNqUkyLdjrXvL77lwazRvtWWXUFdxUTVTJYuMdJrPXeL6gKI1IZCdOxOVNgMRycQQw==",
+  "dgSpecHash": "m4uhTTe5S922tLbqYEHRjphvnRZVYwvCJJiwt9w1hTxRGPwbe9r1JfLXYKi9wytxKSqmHnEvaPQFhW9osCDvkA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jkerz\\Desktop\\Programmieren\\Projects\\JumpingSpeeds\\JumpingSpeeds.csproj",
+  "projectFilePath": "C:\\Users\\jkerz\\Desktop\\Programmieren\\Projects\\SpeedJumping\\JumpingSpeeds.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jkerz\\.nuget\\packages\\raylib-cs\\4.5.0.4\\raylib-cs.4.5.0.4.nupkg.sha512",
     "C:\\Users\\jkerz\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"

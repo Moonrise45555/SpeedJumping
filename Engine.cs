@@ -43,7 +43,7 @@ public class GameObject
                 return (T)Components[i];
             }
         }
-        throw new ArgumentException("Component cant be found!");
+        return null;
     }
     public void AddComponent<T>() where T :  Component
     {
